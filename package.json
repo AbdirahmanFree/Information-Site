@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/AbdirahmanFree/Information-Site/issues"
   },
-  "homepage": "https://github.com/AbdirahmanFree/Information-Site#readme"
+  "homepage": "https://github.com/AbdirahmanFree/Information-Site#readme",
+  "dependencies": {
+    "fs": "^0.0.1-security"
+  }
 }
