@@ -1,6 +1,8 @@
 const { createServer } = require('node:http')
 const fs = require('fs')
 
+const ENV = process.env.NODE_ENV
+
 
 const port = 5000;
 const hostname ='localhost'
@@ -20,7 +22,8 @@ const server = createServer((req,res) => {
         res.end(fs.readFileSync('./contact-me.html'))
     }
     else {
-        res.end(fs.readFileSync('./404.html'))
+
+        res.end(fs.readFileSync('./404dev.html'))
         res.statusCode = 404
     }
  
