@@ -1,5 +1,6 @@
 const { createServer } = require('node:http')
 const fs = require('fs')
+require('dotenv').config()
 
 const ENV = process.env.NODE_ENV
 
@@ -8,9 +9,7 @@ const port = 5000;
 const hostname ='localhost'
 
 const server = createServer((req,res) => {
-    res.statusCode = 200
     res.setHeader('Content-Type', 'text/html')
-    console.log(req.url)
     if(req.url == '/'){
         res.end(fs.readFileSync('./index.html'))
         res.statusCode = 200
@@ -22,9 +21,17 @@ const server = createServer((req,res) => {
         res.end(fs.readFileSync('./contact-me.html'))
     }
     else {
-
-        res.end(fs.readFileSync('./404dev.html'))
         res.statusCode = 404
+
+        if(ENV == 'dev'){
+            res.end(fs.readFileSync('./404dev.html'))
+        }
+        else {
+            res.end(fs.readFileSync('./404prod.html'))
+        }
+      
+
+        
     }
  
 })
